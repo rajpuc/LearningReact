@@ -1,17 +1,17 @@
 function App() {
-  // Akhon amra dekhbo react a State er use kno kori amra:
-  //First Code ta pore asho then nicher comment ta poro.
-  // suppose amra button click akta user er name change korte chai tahole sheta para jai kina dekho:
   let userName = "Rajesh"
   const changeUserName = ()=>{
-    userName = "Rajesh Pal"
+    // akhon amra userName print kore dekhi:
+    console.log("before click : ", userName);
+    userName = "Rajesh Pal";
+    console.log("After click : ", userName);
+    //ata run korale dekhte pabe userName tik e change hocce but UI a sheta update hoi na variable use korle. Er karon hocce amra react use korci. Mane amra akhon directly DOM er sathe interect korte parbo na er jonno amader React k bolte hobe kothai ki korte hobe. na hole sha kaj ta korbe na.
   }
 
   return (
     <>
       <h1>User Name is {userName}</h1>
       <button onClick={changeUserName}>Change User Name</button>
-      // ata run korale dekhbe button click korleo Name change hocce na.
     </>
   )
 }
