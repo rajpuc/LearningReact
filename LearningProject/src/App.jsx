@@ -1,13 +1,17 @@
 function App() {
-  // Remember tumi jai kicu likho shob kintu ai function er moddhe likhte hobe.
-  // akhon amra dekhbo kivbave amra eventlistener use korte pari.
-  const printSomething = ()=>{
-    console.log("Hello Rajesh");
+  // Akhon amra dekhbo react a State er use kno kori amra:
+  //First Code ta pore asho then nicher comment ta poro.
+  // suppose amra button click akta user er name change korte chai tahole sheta para jai kina dekho:
+  let userName = "Rajesh"
+  const changeUserName = ()=>{
+    userName = "Rajesh Pal"
   }
+
   return (
     <>
-      <h1>Hello Rajesh</h1>
-      <button onClick={printSomething}>Click Me</button>
+      <h1>User Name is {userName}</h1>
+      <button onClick={changeUserName}>Change User Name</button>
+      // ata run korale dekhbe button click korleo Name change hocce na.
     </>
   )
 }
