@@ -1,9 +1,13 @@
 function App() {
-  const j = 200;
+  // Remember tumi jai kicu likho shob kintu ai function er moddhe likhte hobe.
+  // akhon amra dekhbo kivbave amra eventlistener use korte pari.
+  const printSomething = ()=>{
+    console.log("Hello Rajesh");
+  }
   return (
     <>
-      <h1> Hello Rajesh {j}</h1>
-      <h2>how to pass multiple element from a single return</h2>
+      <h1>Hello Rajesh</h1>
+      <button onClick={printSomething}>Click Me</button>
     </>
   )
 }
