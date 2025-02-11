@@ -1,18 +1,32 @@
 import React, { useState } from "react";
-import Parent from "./components/Parent";
+import axios from 'axios';
 
+// API calling with axios
 
-
-// Props Drilling
-// Props Drilling is a situation in React where props (data) are passed down multiple levels of components, even if some intermediate components don’t need the data.
-
-//🔴 Problem: When a deeply nested component needs data, it has to be passed through multiple intermediate components, making the code harder to maintain.
 
 
 const App = () => {
-  
+  const [data,setData] = useState([]);
+
+  const getData = async ()=>{
+    const url = "https://picsum.photos/v2/list?page=2&limit=20";
+    const response = await axios.get(url);
+    
+   setData( await response.data);
+    console.log(data);
+  }
+
   return (
-    <Parent grandChild="Rajesh Pal" />
+    <>
+    <button onClick={getData} className="bg-blue-300 px-2 py-1 rounded text-white font-medium m-5 active:scale-95">Get Data</button>
+    <div className="m-5 bg-blue-50">
+      {
+        data.map((item,index)=>{
+         return  <img key={index} src={item.download_url} /> 
+        })
+      }
+    </div>
+    </>
   );
 };
 
