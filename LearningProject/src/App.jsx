@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 
-// 2 way binding
+// 2 way binding with form submi example
 
 const App = () => {
   const [username, setUsername] = useState("");
+  const submitHandeler = (e) => {
+    e.preventDefault();
+    console.log(username);
+    setUsername("");
+  };
   return (
     <div>
-      <form className="w-full mt-9">
+      <form onSubmit={submitHandeler} className="w-full mt-9">
         <div className="flex items-center mx-auto gap-2 w-fit">
           <input
             value={username}
