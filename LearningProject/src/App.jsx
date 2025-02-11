@@ -1,27 +1,21 @@
-import React, { useState } from "react";
-import axios from 'axios';
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Product from "./pages/Product";
+import React, { useContext, useState } from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Section from "./components/Section";
+import { DataContext } from "./context/UserContext";
 
-// React Router DOM
 
 const App = () => {
-  
+  // 9:
+  const data = useContext(DataContext);
+
+  //10: in this way you can use the DataContext in other components also. 
   return (
     <>
-      {/* 3rd step: Now you can do whatever you want */}
       <Header/>
-      {/* 2nd step: Create your project route like this: */}
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/product" element={<Product/>} />
-      </Routes>
+      <h1>This is App.js : coming from DataContext --- {data}</h1>
+      <Section/>
+      <Footer/>
     </>
   );
 };
