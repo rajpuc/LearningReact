@@ -1,31 +1,27 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Product from "./pages/Product";
+import Header from "./components/Header";
 
-// API calling with axios
-
-
+// React Router DOM
 
 const App = () => {
-  const [data,setData] = useState([]);
-
-  const getData = async ()=>{
-    const url = "https://picsum.photos/v2/list?page=2&limit=20";
-    const response = await axios.get(url);
-    
-   setData( await response.data);
-    console.log(data);
-  }
-
+  
   return (
     <>
-    <button onClick={getData} className="bg-blue-300 px-2 py-1 rounded text-white font-medium m-5 active:scale-95">Get Data</button>
-    <div className="m-5 bg-blue-50">
-      {
-        data.map((item,index)=>{
-         return  <img key={index} src={item.download_url} /> 
-        })
-      }
-    </div>
+      {/* 3rd step: Now you can do whatever you want */}
+      <Header/>
+      {/* 2nd step: Create your project route like this: */}
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/product" element={<Product/>} />
+      </Routes>
     </>
   );
 };
