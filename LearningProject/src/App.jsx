@@ -1,18 +1,27 @@
-import { useState } from "react";
+import React from "react";
 
-function App() {
-  
-  const [counter, setCounter] = useState(0);
+// form handeling
 
-
+const App = () => {
+  const submitHandeler = (e) => {
+    e.preventDefault();
+    console.log("Rajesh Pal");
+  };
   return (
-    <>
-      <h3>Simple Number Increment Decrement Project:</h3>
-      <h1 className="bg-green-700 ml-7"> Count {counter}</h1>
-      <button onClick={()=>{setCounter( counter+1 )}}>Increment Counter</button>
-      <button onClick={()=>{setCounter( counter-1 )}}>Decrement Counter</button>
-    </>
-  )
-}
+    <div>
+      <form
+        onSubmit={
+          submitHandeler
+        }
+        className="w-full mt-9"
+      >
+        <div className="flex items-center mx-auto gap-2 w-fit">
+          <input className="border px-2" type="text" name="" id="" />
+          <button className="bg-blue-300 px-2 py-1/2 rounded">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
-export default App
+export default App;
