@@ -1,32 +1,21 @@
 import React, { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import CardOne from "./components/cards/CardOne";
-import CardTwo from "./components/cards/CardTwo";
-import CardThree from "./components/cards/CardThree";
-// Components
-// Component file er name shob shomoy Upper case letter diye suru hobe.
+import Card from "./components/Card";
+import AnotherCard from "./components/AnotherCard";
+
+
+// Props 
 
 const App = () => {
+  const passedProperty = "Hello There";
   return (
     <>
-      <Header />
-        <div className="flex items-center justify-between px-2">
-          <CardOne />
-          <CardOne />
-          <CardOne />
-        </div >
-        <div className="flex items-center justify-between px-2">
-          <CardTwo />
-          <CardTwo />
-          <CardTwo />
-        </div>
-        <div className="flex items-center justify-between px-2">
-          <CardThree />
-          <CardThree />
-          <CardThree />
-        </div>
-      <Footer />
+      {/* 1st way of passing a property */}
+      <Card passedProperty={passedProperty}/>
+      {/* 2nd way of passing a property */}
+      <Card passedProperty="you can also use this syntax"/>
+      {/* Another way of Recieve a property. Please Go to AnotherCard.jsx to learn: */}
+      <AnotherCard username="Rajesh Pal" city="Rangamati" age="25"/>
+
     </>
   );
 };
